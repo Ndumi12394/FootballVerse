@@ -230,6 +230,7 @@ a:hover {
     transition: all var(--transition-base);
     position: relative;
     font-size: var(--font-size-sm);
+    cursor: pointer;
 }
 
 .nav-link:hover {
