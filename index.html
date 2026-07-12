@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FootballVerse - A premium social media platform for football enthusiasts">
+    <meta name="theme-color" content="#000000">
+    <title>FootballVerse - Football Social Media</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <div class="navbar-logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="2" fill="currentColor"/>
+                    <path d="M14 20 L26 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M20 14 L20 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="logo-text">FootballVerse</span>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    placeholder="Search players, clubs, leagues..."
+                    id="searchInput"
+                >
+                <button class="search-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="navbar-nav">
+                <a href="#" class="nav-link active" data-category="all">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span class="nav-label">Home</span>
+                </a>
+                <a href="#trending" class="nav-link" data-category="trending">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18 10 11.41l4 4 6.3-6.29L22 12v-6z"/>
+                    </svg>
+                    <span class="nav-label">Trending</span>
+                </a>
+                <a href="#" class="nav-link" id="notificationBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                    </svg>
+                    <span class="nav-label">Notifications</span>
+                    <span class="notification-badge">3</span>
+                </a>
+                <div class="nav-divider"></div>
+                <a href="#" class="nav-link" id="authBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                    <span class="nav-label">Sign In</span>
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Sidebar - Categories -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Categories</h3>
+                <div class="category-list">
+                    <button class="category-btn active" data-category="all">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/>
+                        </svg>
+                        All Posts
+                    </button>
+                    <button class="category-btn" data-category="wallpapers">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                        </svg>
+                        Wallpapers
+                    </button>
+                    <button class="category-btn" data-category="kits">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12h-4v-2h4v2zm4-8H6V4h12v2z"/>
+                        </svg>
+                        Kits
+                    </button>
+                    <button class="category-btn" data-category="boots">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                        </svg>
+                        Boots
+                    </button>
+                    <button class="category-btn" data-category="tactics">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                        Tactics
+                    </button>
+                    <button class="category-btn" data-category="stadiums">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/>
+                        </svg>
+                        Stadiums
+                    </button>
+                    <button class="category-btn" data-category="edits">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/>
+                        </svg>
+                        Edits
+                    </button>
+                    <button class="category-btn" data-category="memes">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/>
+                        </svg>
+                        Memes
+                    </button>
+                </div>
+            </div>
+
+            <!-- Trending Users -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Follow Users</h3>
+                <div class="trending-users" id="trendingUsers">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Feed Content -->
+        <section class="feed-container">
+            <!-- Create Post Card (Visible when logged in) -->
+            <div class="create-post-card" id="createPostCard" style="display: none;">
+                <div class="create-post-header">
+                    <img src="https://via.placeholder.com/40?text=You" alt="Your avatar" class="user-avatar-small">
+                    <div class="create-post-input">
+                        <button class="create-post-btn" id="openUploadModal">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            Upload Football Image
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Welcome Message (Visible when not logged in) -->
+            <div class="welcome-message" id="welcomeMessage">
+                <div class="welcome-content">
+                    <h2>Welcome to FootballVerse</h2>
+                    <p>Discover, share, and celebrate football culture</p>
+                    <button class="btn-primary" id="signInBtn">Sign In to Get Started</button>
+                </div>
+            </div>
+
+            <!-- Posts Grid -->
+            <div class="posts-grid" id="postsGrid">
+                <!-- Posts will be populated here by JavaScript -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+                <button class="btn-load-more" id="loadMoreBtn">Load More Posts</button>
+            </div>
+        </section>
+
+        <!-- Right Sidebar - Recommendations -->
+        <aside class="right-sidebar">
+            <div class="recommendations-section">
+                <h3 class="sidebar-title">Recommended Users</h3>
+                <div class="recommended-users" id="recommendedUsers">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="recommendations-section">
+                <h3 class="sidebar-title">Trending Leagues</h3>
+                <div class="trending-leagues" id="trendingLeagues">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Modal: Upload Post -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload Football Post</h2>
+                <button class="modal-close" id="closeUploadModal">&times;</button>
+            </div>
+            <form class="upload-form" id="uploadForm">
+                <div class="form-group">
+                    <label for="categorySelect">Category</label>
+                    <select id="categorySelect" required>
+                        <option value="">Select a category</option>
+                        <option value="wallpapers">Wallpapers</option>
+                        <option value="kits">Kits</option>
+                        <option value="boots">Boots</option>
+                        <option value="tactics">Tactics</option>
+                        <option value="stadiums">Stadiums</option>
+                        <option value="edits">Edits</option>
+                        <option value="memes">Memes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="imageUpload" class="image-upload-label">
+                        <div class="image-upload-box">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p>Click to upload or drag and drop</p>
+                            <span>PNG, JPG, GIF up to 10MB</span>
+                        </div>
+                        <input type="file" id="imageUpload" accept="image/*" required hidden>
+                    </label>
+                    <div class="image-preview" id="imagePreview"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="postCaption">Caption</label>
+                    <textarea id="postCaption" placeholder="Describe your football content..." rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="postTags">Tags (comma-separated)</label>
+                    <input type="text" id="postTags" placeholder="e.g., Cristiano Ronaldo, Real Madrid, Football">
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelUploadBtn">Cancel</button>
+                    <button type="submit" class="btn-primary">Publish Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Post Details -->
+    <div class="modal" id="postModal">
+        <div class="modal-content post-modal-content">
+            <button class="modal-close" id="closePostModal">&times;</button>
+            <div class="post-modal-body" id="postModalBody">
+                <!-- Post details populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Auth (Login/Signup) -->
+    <div class="modal" id="authModal">
+        <div class="modal-content auth-modal-content">
+            <div class="auth-modal-header">
+                <h2 id="authModalTitle">Sign In</h2>
+                <button class="modal-close" id="closeAuthModal">&times;</button>
+            </div>
+            <form class="auth-form" id="authForm">
+                <div id="loginForm">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary btn-block">Sign In</button>
+                </div>
+
+                <div id="signupForm" style="display: none;">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" id="signupName" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" id="signupEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" id="signupPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Confirm Password" id="signupConfirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary btn-block">Create Account</button>
+                </div>
+
+                <div class="auth-toggle">
+                    <span id="authToggleText">Don't have an account? </span>
+                    <button type="button" id="authToggleBtn" class="link-btn">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Script -->
+    <script src="src/js/app.js"></script>
+</body>
+</html>
